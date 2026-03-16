@@ -1,0 +1,11 @@
+**/target/*.original
+**/.idea
+**/.git
+**/node_modules
+**/.vscode
+**/terraform
+Dockerfile
+docker-compose.yml
+README.md
+.gitignore
+LICENSE
