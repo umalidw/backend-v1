@@ -7,16 +7,11 @@ RUN apt-get update && apt-get install -y netcat-openbsd && rm -rf /var/lib/apt/l
 
 # Copy Maven wrapper and pom.xml first for better caching
 COPY mvnw .
-COPY mvnw.cmd .
 COPY .mvn .mvn
 COPY pom.xml .
+COPY src src
 
-# Copy source code
-COPY src ./src
-
-# Make mvnw executable and build the application
-RUN chmod +x mvnw && \
-    ./mvnw clean package -DskipTests
+RUN chmod +x mvnw && ./mvnw clean package -DskipTests
 
 # Copy wait scripts
 COPY wait-for-it.sh .
